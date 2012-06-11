@@ -2,17 +2,18 @@
 <html lang=en">
 <head>
 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../media/css/bootstrap.css" rel="stylesheet">
+	<link href="../media/css/bootstrap-responsive.css" rel="stylesheet">
 
 	<!--custom CSS -->
-    <link href="../css/tkn.css" rel="stylesheet">
+    <link href="../media/css/tkn.css" rel="stylesheet">
 
 	<style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
+
 </head>
 
 <body>
@@ -43,67 +44,42 @@
 	 			<div class="row-fluid">
 					<span class="pull-left"><h2><span class="badge badge-info step-header">Step 1</span> Choose a Subject:<small> Why Choose a Subject</small></h2></span>
 				</div>
-				<div class="row-fluid">	
-					<div class="span2">
-						<button class="btn btn-info">
-							English
-						</button>
-					</div>
-					<div class="span2">
-						<button class="btn btn-success">
-							Social Studies
-						</button>
-					</div>
-					<div class="span2">
-						<button class="btn btn-warning">
-						   Sciences
-						</button>
+				<div class="row-fluid">
+					<div class="subjects">	
+						<script id="subjects-template" type="text/html">
+							<div class="span2">
+									<button id={{ subject }} class="subject-select btn btn-info">
+										{{ subjectName }}
+									</button>
+								</div>
+							</div>
+						</script>
 					</div>
 				</div>
 			</div><!-- /row -->
 	   </section>
 
-	   <!-- TODO: Stop the maddness of linebreaks -->
-	   <br />
-	   <br />
-
-	
 	   <section id="step2">
-    	   <span class="pull-left"><h2><span class="badge badge-info step-header">Step 2</span> Choose a Task Type:</h2></span>
-		   <span class="pull-left"><p class="alert alert-info step-description">I'm blue Dabade Dabadai</p></span>
+    	   <span class="pull-left"><h2><span class="badge badge-info step-header">Step 2</span> Choose a Task Type:<small>Why choose a Task Type</small></h2></span>
 			<div class="row-fluid">
 				<div class="span12">
 				<!-- TODO: break this down into a template -->
     				<form class="form-inline">
         				<fieldset>
-        			    	<legend>Explain Task Type</legend>
+        			    	<legend></legend>
         			        <div class="control-group">
         			            <label class="control-label" for="input01"></label>
         			         	<div class="controls">
-        			            	<div class="task-type-set pull-left span3">
-        			                	<label class="radio row-fluid">
-        			                    	<input type="radio" class="" id="input01">Argumentative Task
-        			                 	</label>
-        			                 	<div class="arrow_box row-fluid">
-            			                	This Task type is for writing about arguments
-            			             	</div>
-        			             	</div>
-        			             	<div class="task-type-set pull-left span3">
-        			             	   <label class="radio row-fluid">
-        			             	       <input type="radio" class="" id="input01">Instructional Task
-        			             	   </label>
-        			             	   <div class="arrow_box row-fluid">
-        			             	       This Task type is for writing about instructions
-        			             	   </div>
-        			                </div>
-        			                <div class="task-type-set pull-left span3">
-        			             	   <label class="radio row-fluid">
-        			             	       <input type="radio" class="" id="input01">Narrative Task
-        			             	   </label>
-        			             	   <div class="arrow_box row-fluid">
-        			             	       This Task type is for narrative tasks
-        			             	   </div>
-        			                </div>    
+        			        		<script id="task-types-template" type="text/html">
+								    	<div class="task-type-set pull-left span3">
+        			        	        	<label class="radio row-fluid">
+        			           		         	<input type="radio" class="" id="input01"> {{ taskType }}   
+        			            	     	</label>
+        			            	     	<div class="arrow_box row-fluid">
+            			        	        	{{ taskTypeHelp }}
+            			        	     	</div>
+        			            	 	</div>
+									</script>
         			         </div>
         			         <p class="help-block"></p>
         			     </fieldset>
@@ -115,39 +91,32 @@
        <section id="step3">			
          	<h2><span class="badge badge-info step-header">Step 3</span>Choose a Text Structure:</h2>
 			<div class="row-fluid">
-				<div class="span2 pull-left">
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th>Text Structures</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Persuasive</td>
-							</tr>
-							<tr>
-								<td>Cause & Effect</td>
-							</tr>
-							<tr>						
-								<td>Command & Conquer</td>
-							</tr>
-						</tbody>
-					</table>
-				</div><!-- /span -->					
-				<div class="span10 pull-left">
-					<div class="row-fluid">
-						<div class="alert alert-info">
-							<p>This text structure is defined as: definition.  It has the following templates available</p>
-						</div>
-					</div>
-					<div class="row-fluid">
-						<div class="text-structure-template well">
-							<p>A Text Structure Goes Here</p>	
-						</div>
-					</div>
-				</div>
-			</div><!-- /row -->
+				<div class="span12 pull-left">
+					<div class="tabbable tabs-left">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab1" data-toggle="tab">Text Structure</a></li>
+							<li><a href="#tab2" data-toggle="tab">Persuasive</a></li>
+						</ul>   
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab1">
+								<div class="row-fluid">
+									<div class="alert alert-info">
+										<p>This text structure is defined as: definition.  It has the following templates available</p>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="text-structure-template well">
+										<p>A Text Structure Goes Here</p>	
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab2">
+								hi<br /><br /><br /><br /><br />hi
+							</div>
+						</div><!-- /tab-content -->
+					</div><! -- /tabbable -->
+				</div><! -- /span -->
+			</div><! --/row -->
        </section>
 	  
 
@@ -156,6 +125,11 @@
 </body>
 	<!-- javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="../media/js/bootstrap.js"></script>
+	<script src="../media/js/mustache.js"></script>
+	<script src="../media/js/underscore.js"></script>
+	<script src="../media/js/backbone.js"></script>
+	<script src="../json/subjects.js"></script>
+
 
 </html>
