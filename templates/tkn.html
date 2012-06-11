@@ -94,8 +94,9 @@
 				<div class="span12 pull-left">
 					<div class="tabbable tabs-left">
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#tab1" data-toggle="tab">Text Structure</a></li>
-							<li><a href="#tab2" data-toggle="tab">Persuasive</a></li>
+							<script id="task-list-template" type="text-html">
+								<li class="active"><a href="#tab1" data-toggle="tab">{{ type }} </a></li>
+							</script>
 						</ul>   
 						<div class="tab-content">
 							<div class="tab-pane active" id="tab1">
